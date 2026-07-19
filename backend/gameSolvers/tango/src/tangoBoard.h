@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -37,6 +38,14 @@ class TangoBoard {
         void setRelations(const std::vector<Relation>& relations) {
             this->relations = relations;
         }
+
+        int getRows() {
+            return rows;
+        }
+
+        int getCols() {
+            return cols;
+        }
         
         Cell at(int row, int col) const {
             return this->board[row][col];
@@ -56,4 +65,6 @@ class TangoBoard {
             }
             return curr;
         }
+
+
 };
