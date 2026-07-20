@@ -23,5 +23,8 @@ TEST_CASE("Set and get board cells") {
     TangoBoard tb;
     tb.setCell(1, 1, Cell::Moon);
     CHECK(tb.at(1, 1) == Cell::Moon);
+
+    tb.setCell(1, 1, Cell::Empty);
+    CHECK(tb.at(1, 1) == Cell::Empty);
 }
 
