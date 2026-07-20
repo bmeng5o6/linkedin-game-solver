@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TANGOBOARD_H
+#define TANGOBOARD_H
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -34,24 +36,32 @@ class TangoBoard {
                 board[f.r1][f.c1] = f.cell;
             }
         }
-        
-        void setRelations(const std::vector<Relation>& relations) {
-            this->relations = relations;
-        }
 
-        int getRows() {
+        int getRows() const {
             return rows;
         }
 
-        int getCols() {
+        int getCols() const {
             return cols;
+        }
+
+        const std::vector<Relation>& getRelations() {
+            return relations;
         }
         
         Cell at(int row, int col) const {
             return this->board[row][col];
         }
 
-        std::string toString() {
+        void setRelations(const std::vector<Relation>& relations) {
+            this->relations = relations;
+        }
+
+        void setCell(int row, int col, Cell cell) {
+            this->board[row][col] = cell;
+        }
+
+        std::string toString() const {
             std::string curr = "";
             for (int r = 0; r < rows; r++) {
                 for (int c = 0; c < cols; c++) {
@@ -68,3 +78,5 @@ class TangoBoard {
 
 
 };
+
+#endif

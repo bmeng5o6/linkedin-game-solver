@@ -1,11 +1,11 @@
-#include <cassert>
-#include <iostream>
-#include "../src/tangoBoard.h"
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN 
+#include "backend/gameSolvers/lib/doctest.h"
+#include "backend/gameSolvers/tango/src/tangoBoard.h"
 
-void testBoardCreation() {
+TEST_CASE("Board creation") {
     TangoBoard tb;
-    assert(tb.getRows() == 6);
-    assert(tb.getCols() == 6);
+    CHECK(tb.getRows() == 6);
+    CHECK(tb.getCols() == 6);
 
     bool allEmpty = true;
     for (int r = 0; r < tb.getRows(); r++) {
@@ -16,8 +16,12 @@ void testBoardCreation() {
             }
         }
     }
-    assert(allEmpty);
+    CHECK(allEmpty);
 }
-int main() {
 
+TEST_CASE("Set and get board cells") {
+    TangoBoard tb;
+    tb.setCell(1, 1, Cell::Moon);
+    CHECK(tb.at(1, 1) == Cell::Moon);
 }
+
