@@ -2,7 +2,7 @@
 #include <string>
 #include "tangoBoard.h"
 
-TangoBoard::TangoBoard(int numRows = 6, int numCols = 6) 
+TangoBoard::TangoBoard(int numRows, int numCols) 
     : rows(numRows), cols(numCols), board(numRows, std::vector<Cell>(numCols, Cell::Empty)) {}
 
 void TangoBoard::applyFilled(std::vector<Filled> filled) {

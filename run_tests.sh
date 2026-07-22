@@ -1,2 +1,5 @@
 #!/bin/bash
-g++ -std=c++17 -I. backend/gameSolvers/tango/tests/test_board.cpp -o run_tests && ./run_tests
+g++ -std=c++17 -Wall -Wextra -g -I. \
+    backend/gameSolvers/tango/src/*.cpp \
+    backend/gameSolvers/tango/tests/*.cpp \
+    -o run_tests && ./run_tests
